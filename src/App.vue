@@ -140,6 +140,12 @@ const input_binary = computed(() => {
   }
   return "";
 }); */
+
+function copyUD() {
+  if (typeof window !== "undefined") {
+    navigator.clipboard.writeText(input_udmc.value);
+  }
+}
 </script>
 
 <template>
@@ -157,6 +163,7 @@ const input_binary = computed(() => {
         <li>Original Input: {{ input }}</li>
         <li>Upside Down: {{ input_ud }}</li>
         <li>Upside Down (Minecraft-compatible): {{ input_udmc }}</li>
+        <button @click="copyUD">copy udmc</button>
         <li>Enchanted: {{ input_enchant }}</li>
         <li>Uppercase: {{ input.toUpperCase() }}</li>
         <li>Lowercase: {{ input.toLowerCase() }}</li>
@@ -174,8 +181,7 @@ const input_binary = computed(() => {
         Character Count: {{ input.length }}</span
       >
       <span
-        >Created by
-        WorldWidePixel and maintained by 
+        >Created by WorldWidePixel and maintained by
         <a href="https://github.com/warding-words/">Warding Words</a></span
       >
       <!--
